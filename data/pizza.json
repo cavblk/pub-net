@@ -1,0 +1,183 @@
+[{
+  "name": "Margherita",
+  "image": "pizza/Margherita.jpg",
+  "ingredients": [{
+    "name": "dough",
+    "image": "ingredients/Dough.jpg",
+    "price": 1.25,
+    "quantity": 1,
+    "stock": 500
+  }, {
+    "name": "tomato sauce",
+    "image": "ingredients/TomatoSauce.jpg",
+    "price": 2.00,
+    "quantity": 1,
+    "stock": 500
+  }, {
+    "name": "basil",
+    "image": "ingredients/Basil.jpg",
+    "price": 0.50,
+    "quantity": 2,
+    "stock": 500
+  }, {
+    "name": "mozzarella",
+    "image": "ingredients/Mozzarella.jpeg",
+    "price": 5.00,
+    "quantity": 2,
+    "stock": 500
+  }]
+}, {
+  "name": "Quattro Formaggi",
+  "image": "pizza/QuattroFormaggi.jpg",
+  "ingredients": [{
+    "name": "dough",
+    "image": "ingredients/Dough.jpg",
+    "price": 2.00,
+    "quantity": 1,
+    "stock": 500
+  }, {
+    "name": "tomato sauce",
+    "image": "ingredients/TomatoSauce.jpg",
+    "price": 2.00,
+    "quantity": 1,
+    "stock": 500
+  }, {
+    "name": "mozzarella",
+    "image": "ingredients/Mozzarella.jpeg",
+    "price": 5.00,
+    "quantity": 1,
+    "stock": 500
+  }, {
+    "name": "gorgonzola",
+    "image": "ingredients/Gorgonzola.jpeg",
+    "price": 7.50,
+    "quantity": 1,
+    "stock": 500
+  }, {
+    "name": "fontina",
+    "image": "ingredients/Fontina.jpeg",
+    "price": 6.00,
+    "quantity": 1,
+    "stock": 500
+  }, {
+    "name": "parmigiano-reggiano",
+    "image": "ingredients/ParmigianoReggiano.jpg",
+    "price": 6.75,
+    "quantity": 1,
+    "stock": 500
+  }]
+}, {
+  "name": "Quattro Stagioni",
+  "image": "pizza/QuattroStagioni.jpg",
+  "ingredients": [{
+    "name": "dough",
+    "image": "ingredients/Dough.jpg",
+    "price": 2.00,
+    "quantity": 1,
+    "stock": 500
+  }, {
+    "name": "tomato sauce",
+    "image": "ingredients/TomatoSauce.jpg",
+    "price": 2.00,
+    "quantity": 1,
+    "stock": 500
+  }, {
+    "name": "artichokes",
+    "image": "ingredients/Artichokes.png",
+    "price": 3.00,
+    "quantity": 2,
+    "stock": 500
+  }, {
+    "name": "mushrooms",
+    "image": "ingredients/Mushrooms.jpg",
+    "price": 3.75,
+    "quantity": 1,
+    "stock": 500
+  }, {
+    "name": "olives",
+    "image": "ingredients/Olives.jpg",
+    "price": 2.50,
+    "quantity": 2,
+    "stock": 500
+  }, {
+    "name": "ham",
+    "image": "ingredients/Ham.jpg",
+    "price": 10.00,
+    "quantity": 1,
+    "stock": 500
+  }]
+}, {
+  "name": "Bianca",
+  "image": "pizza/Bianca.jpeg",
+  "ingredients": [{
+    "name": "dough",
+    "image": "ingredients/Dough.jpg",
+    "price": 2.00,
+    "quantity": 1,
+    "stock": 500
+  }, {
+    "name": "mozzarella",
+    "image": "ingredients/Mozzarella.jpeg",
+    "price": 5.00,
+    "quantity": 2,
+    "stock": 500
+  }, {
+    "name": "ricotta",
+    "image": "ingredients/Ricotta.jpg",
+    "price": 5.50,
+    "quantity": 1,
+    "stock": 500
+  }, {
+    "name": "pecorino-romano",
+    "image": "ingredients/Pecorino.jpg",
+    "price": 4.50,
+    "quantity": 1,
+    "stock": 500
+  }]
+}, {
+  "name": "Quattro Carni",
+  "image": "pizza/QuattroCarni.jpg",
+  "ingredients": [{
+    "name": "dough",
+    "image": "ingredients/Dough.jpg",
+    "price": 2.00,
+    "quantity": 1,
+    "stock": 500
+  }, {
+    "name": "tomato sauce",
+    "image": "ingredients/TomatoSauce.jpg",
+    "price": 2.00,
+    "quantity": 1,
+    "stock": 500
+  }, {
+    "name": "mozzarella",
+    "image": "ingredients/Mozzarella.jpeg",
+    "price": 5.00,
+    "quantity": 1,
+    "stock": 500
+  }, {
+    "name": "ham",
+    "image": "ingredients/Ham.jpg",
+    "price": 10.00,
+    "quantity": 1,
+    "stock": 500
+  }, {
+    "name": "salami",
+    "image": "ingredients/Salami.jpg",
+    "price": 8.25,
+    "quantity": 1,
+    "stock": 500
+  }, {
+    "name": "sausages",
+    "image": "ingredients/Saussages.jpeg",
+    "price": 5.75,
+    "quantity": 1,
+    "stock": 500
+  }, {
+    "name": "chicken breast",
+    "image": "ingredients/ChickenBrest.jpg",
+    "price": 11.00,
+    "quantity": 1,
+    "stock": 500
+  }]
+}]

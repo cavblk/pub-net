@@ -1,0 +1,26 @@
+[
+  {
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john.doe@test.com",
+    "roles": [
+      {
+        "name": "customer"
+      }
+    ],
+    "addresses": [
+      {
+        "street": "Str. Nicolae Iorga",
+        "city": "Craiova",
+        "country": "Romania",
+        "type": "SHIPPING"
+      },
+      {
+        "street": "Str. George Fotino",
+        "city": "Craiova",
+        "country": "Romania",
+        "type": "BILLING"
+      }
+    ]
+  }
+]

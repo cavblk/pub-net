@@ -1,0 +1,21 @@
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/auth_user_menu.css' %}" />
+{% endblock %}
+
+<div class="auth-user-menu-container">
+    <div id="auth-menu-trigger" class="auth-data">
+        <span>{{ user.first_name }} {{ user.last_name }}</span>
+        <i class="fas fa-angle-down arrow"></i>
+    </div>
+    <div class="auth-menu hide">
+        <ul>
+            <li><a>Profile</a></li>
+            <li><a href="{% url 'users:logout' %}">Logout</a></li>
+        </ul>
+    </div>
+</div>
+
+{% block script %}
+    <script src="{% static 'js/auth_user_menu.js' %}"></script>
+{% endblock %}

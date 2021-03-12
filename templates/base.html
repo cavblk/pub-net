@@ -1,0 +1,46 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>Pizza Delivery</title>
+        <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+        <link href="{% static 'fontawesome_free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+        {% block style %}
+        {% endblock %}
+        <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+    </head>
+    <body>
+        <div class="page-wrapper">
+            <div class="header-wrapper">
+                <div class="header-content">
+                    <div class="brand">
+                        <a href="/">
+                            <img src="{% static 'images/deliveryLogo.png' %}" height="50" />
+                        </a>
+                    </div>
+                    <ul class="menu">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="{% url 'stores:list' %}">Stores</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                    <div class="user-data">
+                        {% if user.is_authenticated %}
+                            {% include 'auth_user_menu.html' %}
+                        {% else %}
+                            <a href="{% url 'users:login' %}">Login</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="header-image" style="background-image: url('{% static 'images/appBanner.jpg' %}')">
+                    <div class="overlay"></div>
+                </div>
+            </div>
+            <div class="content">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+        {% block script %}
+        {% endblock %}
+    </body>
+</html>

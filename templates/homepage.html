@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Python Title</title>
+{% endblock%}
+
+{% block content %}
+    <img src="{% static 'images/deliveryLogo.png' %}" width="50" />
+    <h1>{{ brand }}</h1>
+    <h2>
+        {% if motto %}
+            {{ motto }}
+        {% else %}
+            We are poor, we don't have a motto :(
+        {%endif%}
+    </h2>
+    {% if user.is_authenticated %}
+        <h3>Hey, {{ user.first_name }} {{ user.last_name }}!</h3>
+    {% endif %}
+    <p>We have a total of {{ pizza_list | length }} you can choose from.</p>
+    <ul>
+        {% for pizza in pizza_list %}
+            <li>{{ pizza.name }} {{ pizza.price }}</li>
+        {% endfor %}
+    </ul>
+{% endblock%}

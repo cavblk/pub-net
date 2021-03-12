@@ -1,0 +1,41 @@
+.auth-user-menu-container {
+    position: relative;
+}
+
+.auth-user-menu-container .auth-data {
+    cursor: pointer;
+}
+
+.auth-user-menu-container .auth-data .arrow {
+    margin-left: 5px;
+}
+
+.auth-user-menu-container .auth-menu {
+    background-color: red;
+    position: absolute;
+    top: 39px;
+    right: 0;
+    background-color: black;
+    box-shadow: 1px 1px 5px black;
+}
+
+.auth-menu ul {
+    list-style-type:none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.auth-menu ul li {
+    padding: 20px;
+}
+
+.auth-menu ul li:hover {
+    background-color: rgba(255, 255, 255, 0.1)
+}
+
+.auth-menu ul li a {
+    cursor: pointer;
+}
