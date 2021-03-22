@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 import os
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '#5fdclzl!y6sg_0kv#*bx3kknh^ki)i5ih0xyf!oqj-yjfttvs'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -82,11 +83,11 @@ WSGI_APPLICATION = 'nt_pizza_django.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'localhost',
-        'PORT': 3306,
-        'NAME': 'nt_pizza_db',
-        'USER': 'root',
-        'PASSWORD': 'Admin10!',
+        'HOST': config('DB_HOST', 'localhost'),
+        'PORT': config('DB_PORT', 3306),
+        'NAME': config('DB_NAME', 'nt_pizza_db'),
+        'USER': config('DB_USER', 'root'),
+        'PASSWORD': config('DB_PASS'),
     }
 }
 
