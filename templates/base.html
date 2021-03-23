@@ -28,6 +28,7 @@
                             {% include 'auth_user_menu.html' %}
                         {% else %}
                             <a href="{% url 'users:login' %}">Login</a>
+                            <a id="register-link" href="{% url 'users:register' %}">Register</a>
                         {% endif %}
                     </div>
                 </div>

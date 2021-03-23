@@ -66,6 +66,10 @@ html, body {
     text-decoration: none;
 }
 
+.page-wrapper .header-wrapper .header-content .user-data a#register-link {
+    margin-left: 20px;
+}
+
 .page-wrapper .header-wrapper .header-content .menu li:hover {
     border-bottom: 1px solid #fff;
 }
