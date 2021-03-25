@@ -12,13 +12,19 @@ class Ingredient(CustomModel):
 
 
 class Store(CustomModel):
-    owner = models.ForeignKey(AuthUserModel, on_delete=models.CASCADE)
+    owner = models.ForeignKey(AuthUserModel, on_delete=models.CASCADE, related_name='stores')
     name = models.CharField(max_length=255, unique=True)
     description = models.TextField()
     logo = models.ImageField(upload_to='stores')
     delivery_fee = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
     profit_fee = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
     ingredients = models.ManyToManyField(Ingredient, through='StoreIngredients', related_name='stores')
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
 
 
 class StoreIngredients(CustomModel):

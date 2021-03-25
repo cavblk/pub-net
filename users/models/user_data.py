@@ -17,3 +17,8 @@ class Address(CustomModel):
         SHIPPING = SHIPPING_ADDRESS
         BILLING = BILLING_ADDRESS
     type = models.IntegerField(choices=Types.choices, null=False, default=SHIPPING_ADDRESS)
+
+
+class Profile(CustomModel):
+    user = models.OneToOneField(AuthUserModel, on_delete=models.CASCADE, related_name='profile')
+    avatar = models.ImageField(upload_to='profiles', default=None, null=True)
