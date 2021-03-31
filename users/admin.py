@@ -28,12 +28,3 @@ class AuthUserAdmin(BaseUserAdmin):
     def profile_avatar(self, instance):
         return instance.profile.avatar
     profile_avatar.short_description = 'Profile Avatar'
-
-
-class MyClass:
-    def __init__(self, x):
-        self.a = x
-
-
-print(MyClass(7).a)
-print(7 or 3 + 8)
