@@ -1,0 +1,5 @@
+<form method="post" action="{% url 'users:activation:activate' token %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Activate" />
+</form>

@@ -13,8 +13,14 @@ class ValidateTokenMiddleware:
 
         activation = get_object_or_404(Activation, token=token, activated_at=None)
         reset_token_route = reverse('users:activation:reset_token', args=(token,))
+        activate_route = reverse('users:activation:activate', args=(token,))
         is_reset_token_route = request.path == reset_token_route
 
         if activation.expires_at < timezone.now():
-            if not is_reset_token_route:
+            if is_reset_token_route:
+                return None
+            else:
                 return redirect(reset_token_route)
+
+        if is_reset_token_route:
+            return redirect(activate_route)

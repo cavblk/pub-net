@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class AuthUserManager(BaseUserManager):
-    def create_user(self, first_name, last_name, email, password):
+    def create_user(self, first_name, last_name, email):
         if not first_name:
             raise ValueError('First name is required.')
 
@@ -19,13 +19,12 @@ class AuthUserManager(BaseUserManager):
             last_name=last_name,
             email=email,
         )
-        user.set_password(password)
         user.save()
 
         return user
 
-    def create_superuser(self, first_name, last_name, email, password):
-        user = self.create_user(first_name, last_name, email, password)
+    def create_superuser(self, first_name, last_name, email):
+        user = self.create_user(first_name, last_name, email)
         user.is_staff = True
         user.is_superuser = True
         user.save()
