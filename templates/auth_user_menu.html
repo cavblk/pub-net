@@ -5,6 +5,11 @@
 
 <div class="auth-user-menu-container">
     <div id="auth-menu-trigger" class="auth-data">
+        {% if user.profile.avatar %}
+            <img src="{{ user.profile.avatar.url }}" width="20" height="20" style="border-radius: 100%;" />
+        {% else %}
+            <i class="fas fa-user"></i>
+        {% endif %}
         <span>{{ user.first_name }} {{ user.last_name }}</span>
         <i class="fas fa-angle-down arrow"></i>
     </div>

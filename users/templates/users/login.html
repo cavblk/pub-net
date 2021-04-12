@@ -35,4 +35,12 @@
 {# Assumes you setup the password_reset view in your URLconf #}
 <p><a href="{% url 'users:account:password_reset' %}">Lost password?</a></p>
 
+<a href="{% url 'users:account:social:begin' 'facebook' %}">
+    Facebook auth
+</a>
+<br/>
+<a href="{% url 'users:account:social:begin' 'google-oauth2' %}">
+    Google auth
+</a>
+
 {% endblock %}

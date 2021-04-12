@@ -1,0 +1,39 @@
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 30px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    border: 1px solid black;
+    font-size: 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: black;
+}
+
+.wrapper:hover {
+    border: 2px solid black;
+}
+
+.wrapper.visited,
+.wrapper.active {
+    color: black;
+}
+
+.wrapper.circle {
+    border-radius: 100%;
+}
+
+.wrapper.active {
+    border-color: red;
+    color: red;
+    font-weight: bold;
+}

@@ -15,7 +15,7 @@ def create_profile(instance, created, **kwargs):
 
 @receiver(pre_save, sender=AuthUserModel)
 def inactivate_user(instance, **kwargs):
-    if not instance.pk:
+    if not instance.pk and not instance.is_social_auth:
         instance.is_active = False
         instance.password = None
 

@@ -18,6 +18,9 @@
                             <img src="{% static 'images/deliveryLogo.png' %}" height="50" />
                         </a>
                     </div>
+                    {% if user.is_authenticated %}
+                        {% include 'mini_cart.html' %}
+                    {% endif %}
                     <ul class="menu">
                         <li><a href="/">Home</a></li>
                         <li><a href="{% url 'stores:list' %}">Stores</a></li>

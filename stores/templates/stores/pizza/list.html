@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link href="{% static 'css/pizza.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+    <p>
+        Cart data from session: {{ request.session.cart }}
+    </p>
+    {% include 'pagination.html' %}
+    <ul class="pizza-list">
+        {% for pizza in page_obj %}
+            <li>
+                <img src="{{ pizza.image.url }}" height="180" width="100%" />
+                <div class="name-and-price">
+                    <div>{{ pizza.name }}</div>
+                    <div>{{ pizza.price }} RON</div>
+                </div>
+                <div class="store-details">
+                    Sold by
+                    <a href="/stores/{{ pizza.store.id }}">{{ pizza.store.name }}</a>
+                </div>
+                <form method="post" action="{% url 'stores:pizza:add_to_cart' pizza.id %}">
+                    {% csrf_token %}
+                    <input name="quantity" type="number" min="0" value="0" />
+                    <input type="submit" value="Add to cart" />
+                    <input type="hidden" name="page" value="{{ page_obj.number }}" />
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    {% include 'pagination.html' %}
+{% endblock %}

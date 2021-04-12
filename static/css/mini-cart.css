@@ -1,0 +1,31 @@
+.mini-cart-container {
+    margin-left: 50px;
+    position: relative;
+}
+
+.mini-cart-container .icon-container {
+    padding: 10px;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid white;
+}
+
+.mini-cart-container .icon-container svg path {
+    fill: white;
+}
+
+.mini-cart-container .number {
+    position: absolute;
+    color: red;
+    z-index: 1;
+    background-color: black;
+    border-radius: 100%;
+    top: -5px;
+    right: -5px;
+    font-size: 16px;
+    font-weight: bold;
+}
