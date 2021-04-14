@@ -7,4 +7,5 @@ urlpatterns = [
     path('', store_list, name='list'),
     path('<int:store_id>/', store_details, name='details'),
     path('pizza/', include('stores.urls.pizza')),
+    path('cart/', include('stores.urls.cart')),
 ]

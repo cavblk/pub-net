@@ -7,9 +7,8 @@
 {% endblock %}
 
 {% block content %}
-    {% include 'pagination.html' %}
     <ul class="pizza-list">
-        {% for pizza in page_obj %}
+        {% for pizza in pizza_list %}
             <li>
                 <img src="{{ pizza.image.url }}" height="180" width="100%" />
                 <div class="name-and-price">
@@ -20,14 +19,25 @@
                     Sold by
                     <a href="/stores/{{ pizza.store.id }}">{{ pizza.store.name }}</a>
                 </div>
-                <form method="post" action="{% url 'stores:pizza:add_to_cart' pizza.id %}">
+                <form method="post" action="{% url 'stores:pizza:add_to_cart' pizza.id %}?next={% url 'stores:cart:view' %}">
                     {% csrf_token %}
                     <input name="quantity" type="number" min="0" value="{{ request.session | pizza_value:pizza.id }}" />
                     <input type="submit" value="Add to cart" />
                     <input type="hidden" name="page" value="{{ page_obj.number }}" />
                 </form>
             </li>
+        {% empty %}
+            <p>
+                You have no pizza added to the cart. Go to <a href="{% url 'stores:pizza:list' %}">pizza list</a>.
+            </p>
         {% endfor %}
     </ul>
-    {% include 'pagination.html' %}
+    {% with pizza_list_length=pizza_list|length %}
+        {% if pizza_list_length %}
+            <form>
+                {% csrf_token %}
+                <input type="submit" value="Order" />
+            </form>
+        {% endif %}
+    {% endwith %}
 {% endblock %}

@@ -1,6 +1,7 @@
-from django.shortcuts import redirect, reverse
+from django.shortcuts import redirect, reverse, Http404
 from django.views.generic import ListView
 from stores.models import Pizza
+from utils.cart import Cart
 
 
 class PizzaList(ListView):
@@ -11,21 +12,19 @@ class PizzaList(ListView):
 
 
 def add_to_cart(request, pizza_id):
-    quantity = request.POST['quantity']
     page = request.POST.get('page', 1)
-    print('pizza_id', pizza_id)
-    print('quantity', quantity)
-    print('page', page)
+    next_url = request.GET.get('next')
 
-    # Add to cart.
-    if 'cart' in request.session:
-        request.session['cart'][pizza_id] = quantity
-        request.session.modified = True
-    else:
-        request.session['cart'] = {
-            pizza_id: quantity
-        }
-    print('request.session', request.session['cart'])
+    try:
+        quantity = int(request.POST['quantity'])
+    except ValueError as e:
+        raise Http404(e)
+
+    cart = Cart(request.user, request.session)
+    cart.update(pizza_id, quantity)
+        
+    if next_url:
+        return redirect(next_url)
 
     return redirect('%s?page=%s' % (
         reverse('stores:pizza:list'),

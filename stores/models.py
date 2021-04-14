@@ -30,7 +30,7 @@ class Store(CustomModel):
 class StoreIngredients(CustomModel):
     # TABLE COLUMNS WILL BE: id, store_id, ingredient_id, stock, price, created_at, updated_at
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
-    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE, related_name='ingredients')
     stock = models.IntegerField(null=False, default=0)
     price = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
 
@@ -47,3 +47,8 @@ class PizzaIngredients(CustomModel):
     pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
     store_ingredient = models.ForeignKey(StoreIngredients, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, default=1)
+
+
+class Cart(CustomModel):
+    user = models.OneToOneField(AuthUserModel, on_delete=models.CASCADE)
+    data = models.JSONField(null=True)

@@ -1,0 +1,33 @@
+ul.pizza-list {
+    list-style-type:none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul.pizza-list li {
+    margin: 30px 30px;
+    width: calc(33.33% - 60px);
+}
+
+div.name-and-price {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+div.store-details {
+    color: #888;
+}
+
+form {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+form input[type="number"] {
+    margin-right: 10px;
+    width: 50px;
+}

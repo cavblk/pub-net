@@ -1,13 +1,18 @@
 {% load static %}
-
+{% load cart %}
 
 {% block style %}
     <link rel="stylesheet" href="{% static 'css/mini-cart.css' %}" />
 {% endblock %}
 
-<a href="">
-    <div class="mini-cart-container" title="Total price of the cart: 125.50 RON">
-        <div class="number">12</div>
+{% cart_data as cart_data %}
+
+<a href="{% url 'stores:cart:view' %}">
+    <div class="mini-cart-container" title="Total price of the cart: {{ cart_data.price }}">
+        {% comment %}
+            <div class="number">{{ request.session.cart | products_or_price:'products' }}</div>
+        {% endcomment %}
+        <div class="number">{{ cart_data.products }}</div>
         <div class="icon-container">
             <i class="fas fa-shopping-cart"></i>
         </div>

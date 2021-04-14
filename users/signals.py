@@ -1,8 +1,10 @@
 from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
 from django.contrib.auth import get_user_model
+from django.contrib.auth.signals import user_logged_in
 from users.models import Profile, Activation
 from users.emails import send_activation_email
+from utils.cart import Cart
 
 AuthUserModel = get_user_model()
 
@@ -27,3 +29,8 @@ def set_activation_details(instance, created, **kwargs):
         activation.save()
 
         send_activation_email(activation)
+
+
+@receiver(user_logged_in)
+def get_cart_data(request, user, **kwargs):
+    Cart.load(user, request.session)

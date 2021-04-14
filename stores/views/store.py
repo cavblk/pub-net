@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, Http404
 from django.views.generic import ListView
 from stores.models import Store
 
@@ -27,4 +27,11 @@ def store_list(request):
 
 
 def store_details(request, store_id):
-    return HttpResponse('I received store_id = %s' % store_id)
+    try:
+        store = Store.objects.get(pk=store_id)
+    except Store.DoesNotExist:
+        raise Http404('Store with ID %s does not exist.' % store_id)
+
+    return render(request, 'stores/details.html', {
+        'store': store
+    })

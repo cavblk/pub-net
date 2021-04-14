@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <div>{{store.name}}</div>
+        <div><img src="{{ store.logo.url }}" width="100" /></div>
+        <ul>
+            {% for pizza in store.pizza.all %}
+                <li>
+                    <div>{{pizza.name}}</div>
+                    <div>{{pizza.price}}</div>
+                    <p>Ingredients:</p>
+                    <ul>
+                        {% for store_ingredient in pizza.ingredients.all %}
+                            <li>
+                                <div>Name: {{ store_ingredient.ingredient.name }}</div>
+                                <div>{{ store_ingredient.price }}</div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
