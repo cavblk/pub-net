@@ -1,5 +1,6 @@
 {% load static %}
 {% load cart %}
+{% load pizza %}
 
 {% block style %}
     <link href="{% static 'css/pagination.css' %}" rel="stylesheet" type="text/css">
@@ -7,12 +8,11 @@
 
 
 <div class="pagination">
-    <p>{{ request.GET.urlencode }}</p>
-    <a class="wrapper circle" href="{{ request.GET.urlencode }}?page=1">
+    <a class="wrapper circle" href="{{ request | pagination_url }}">
         <i class="fas fa-angle-double-left"></i>
     </a>
     {% if page_obj.has_previous %}
-        <a class="wrapper circle" href="?page={{ page_obj.previous_page_number }}">
+        <a class="wrapper circle" href="{{ request | pagination_url:page_obj.previous_page_number}}">
     {% else %}
         <a class="wrapper circle">
     {% endif %}
@@ -23,19 +23,19 @@
             {% if page is None %}
                 <span>.............................</span>
             {% else %}
-                <a class="wrapper {% if page_obj.number == page.number %}active{% endif %}" href="?page={{ page.number }}">{{ page.number }}</a>
+                <a class="wrapper {% if page_obj.number == page.number %}active{% endif %}" href="{{ request | pagination_url:page.number}}">{{ page.number }}</a>
             {% endif %}
         {% endfor %}
     {% endwith %}
 
     {% if page_obj.has_next %}
-        <a class="wrapper circle" href="?page={{ page_obj.next_page_number }}">
+        <a class="wrapper circle" href="{{ request | pagination_url:page_obj.next_page_number}}">
     {% else %}
         <a class="wrapper circle">
     {% endif %}
       <i class="fas fa-angle-right"></i>
     </a>
-    <a class="wrapper circle" href="?page={{ page_obj.paginator.num_pages }}">
+    <a class="wrapper circle" href="{{ request | pagination_url:page_obj.paginator.num_pages}}">
         <i class="fas fa-angle-double-right"></i>
     </a>
 </div>
