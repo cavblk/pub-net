@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block content %}
+    {% include 'stores/pizza/filters.html' %}
     {% include 'pagination.html' %}
     <ul class="pizza-list">
         {% for pizza in page_obj %}
@@ -20,7 +21,7 @@
                     Sold by
                     <a href="/stores/{{ pizza.store.id }}">{{ pizza.store.name }}</a>
                 </div>
-                <form method="post" action="{% url 'stores:pizza:add_to_cart' pizza.id %}">
+                <form class="add-to-cart" method="post" action="{% url 'stores:pizza:add_to_cart' pizza.id %}">
                     {% csrf_token %}
                     <input name="quantity" type="number" min="0" value="{{ request.session | pizza_value:pizza.id }}" />
                     <input type="submit" value="Add to cart" />

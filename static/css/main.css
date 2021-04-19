@@ -83,3 +83,8 @@ html, body {
 *.hide {
     display: none;
 }
+
+.flex-valign {
+    display: flex;
+    align-items: center;
+}

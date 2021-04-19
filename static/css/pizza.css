@@ -2,6 +2,8 @@ ul.pizza-list {
     list-style-type:none;
     display: flex;
     flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
 }
 
 ul.pizza-list li {
@@ -21,13 +23,54 @@ div.store-details {
     color: #888;
 }
 
-form {
+form.add-to-cart {
     margin-top: 10px;
     display: flex;
     justify-content: flex-end;
 }
 
-form input[type="number"] {
+form.add-to-cart input[type="number"] {
     margin-right: 10px;
     width: 50px;
 }
+
+.filters-wrapper {
+    margin: 0 30px;
+}
+.filters-wrapper .top-filters {
+    display: flex;
+    justify-content: space-between;
+}
+.filters-wrapper .search-by-field {
+    flex: 1;
+}
+.filters-wrapper .search-by-field input {
+    flex: 1;
+    margin: 0 40px 0 10px;
+    padding: 4px;
+    border-radius: 2px;
+    border: 1px solid black;
+}
+.filters-wrapper select {
+    margin-left: 10px;
+    padding: 4px;
+    border-radius: 2px;
+    border: 1px solid black;
+    background-color: white;
+}
+.filters-wrapper .ingredients-wrapper ul {
+    display: flex;
+    margin: 10px 0;
+    padding: 0;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+.filters-wrapper .ingredients-wrapper ul li {
+    width: 25%;
+    margin: 10px 0;
+}
+.filters-wrapper a {
+    margin-left: 20px;
+}
+
+
