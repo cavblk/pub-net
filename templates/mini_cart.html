@@ -7,7 +7,7 @@
 
 {% cart_data as cart_data %}
 
-<a href="{% url 'stores:cart:view' %}">
+<a href="{% url 'pubs:cart:view' %}">
     <div class="mini-cart-container" title="Total price of the cart: {{ cart_data.price }}">
         {% comment %}
             <div class="number">{{ request.session.cart | products_or_price:'products' }}</div>

@@ -2,7 +2,7 @@ import secrets
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
-from nt_pizza_django.models import CustomModel
+from pub_net.models import CustomModel
 from utils.constants import ACTIVATION_AVAILABILITY_DICT
 
 

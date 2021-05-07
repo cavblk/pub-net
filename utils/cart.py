@@ -1,5 +1,5 @@
 import json
-from stores.models import Cart as CartModel
+from pubs.models import Cart as CartModel
 
 
 class Cart:

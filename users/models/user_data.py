@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from utils.constants import SHIPPING_ADDRESS, BILLING_ADDRESS
-from nt_pizza_django.models import CustomModel
+from pub_net.models import CustomModel
 
 AuthUserModel = get_user_model()
 

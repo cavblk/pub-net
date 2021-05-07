@@ -1,0 +1,15 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <ul>
+        {% for pub in pub_list %}
+            <li>
+                <a href="{% url 'pubs:details' pub.id %}">
+                    <img src="{{ pub.logo.url }}" width="100" />
+                    <div>{{ pub.name }}</div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

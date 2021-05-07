@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <div>{{pub.name}}</div>
+        <div><img src="{{ pub.logo.url }}" width="100" /></div>
+        <ul>
+            {% for pizza in pub.pizza.all %}
+                <li>
+                    <div>{{pizza.name}}</div>
+                    <div>{{pizza.price}}</div>
+                    <p>Ingredients:</p>
+                    <ul>
+                        {% for pub_ingredient in pizza.ingredients.all %}
+                            <li>
+                                <div>Name: {{ pub_ingredient.ingredient.name }}</div>
+                                <div>{{ pub_ingredient.price }}</div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
