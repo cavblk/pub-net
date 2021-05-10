@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>Ye Olde New Pub Visan</title>
+        <title>Ye Olde New Pub</title>
         <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
         <link href="{% static 'fontawesome_free/css/all.min.css' %}" rel="stylesheet" type="text/css">
         {% block style %}
@@ -24,7 +24,10 @@
                     <ul class="menu">
                         <li><a href="/">Home</a></li>
                         <li><a href="{% url 'pubs:list' %}">Pubs</a></li>
-                        <li><a href="{% url 'pubs:pizza:list' %}">Pizza</a></li>
+                        <li><a href="{% url 'pubs:bundle:list' %}">Bundles</a></li>
+                        <li><a href="{% url 'pubs:reservation:list' %}">Reservations</a></li>
+                        <li><a href="{% url 'pubs:event:list' %}">Events</a></li>
+                        <li><a href="{% url 'pubs:gallery:list' %}">Gallery</a></li>
                         <li><a href="/contact">Contact</a></li>
                     </ul>
                     <div class="user-data">

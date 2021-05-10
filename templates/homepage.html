@@ -2,12 +2,14 @@
 {% load static %}
 
 {% block title %}
-    <title>Python Title</title>
+    <title>Ye Olde New Pub</title>
 {% endblock%}
 
 {% block content %}
+    <h1> </h1>
     <img src="{% static 'images/jazz_rock.jpg' %}" width="50" />
     <h1>{{ brand }}</h1>
+    <h4>Est. 2021</h4>
     <h2>
         {% if motto %}
             {{ motto }}
@@ -18,10 +20,12 @@
     {% if user.is_authenticated %}
         <h3>Hey, {{ user.first_name }} {{ user.last_name }}!</h3>
     {% endif %}
-    <p>We have a total of {{ pizza_list | length }} you can choose from.</p>
+    <!-- Write your comments
+    <p>We have a total of {{ bundle_list | length }} you can choose from.</p>
     <ul>
-        {% for pizza in pizza_list %}
-            <li>{{ pizza.name }} {{ pizza.price }}</li>
+        {% for bundle in bundle_list %}
+            <li>{{ bundle.name }} {{ bundle.price }}</li>
         {% endfor %}
     </ul>
+    here -->
 {% endblock%}

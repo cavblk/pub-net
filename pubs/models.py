@@ -6,9 +6,9 @@ AuthUserModel = get_user_model()
 
 
 # Create your models here.
-class Ingredient(CustomModel):
+class Product(CustomModel):
     name = models.CharField(max_length=255, unique=True)
-    image = models.ImageField(upload_to='ingredients', default=None)
+    image = models.ImageField(upload_to='products', default=None)
 
 
 class Pubs(CustomModel):
@@ -18,7 +18,7 @@ class Pubs(CustomModel):
     logo = models.ImageField(upload_to='pubs')
     delivery_fee = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
     profit_fee = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
-    ingredients = models.ManyToManyField(Ingredient, through='PubsIngredients', related_name='pubs')
+    products = models.ManyToManyField(Product, through='PubsProducts', related_name='pubs')
 
     def __str__(self):
         return self.name
@@ -27,25 +27,25 @@ class Pubs(CustomModel):
         return self.name
 
 
-class PubsIngredients(CustomModel):
-    # TABLE COLUMNS WILL BE: id, pub_id, ingredient_id, stock, price, created_at, updated_at
+class PubsProducts(CustomModel):
+    # TABLE COLUMNS WILL BE: id, pub_id, product_id, stock, price, created_at, updated_at
     pub = models.ForeignKey(Pubs, on_delete=models.CASCADE)
-    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE, related_name='ingredients')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='products')
     stock = models.IntegerField(null=False, default=0)
     price = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
 
 
-class Pizza(CustomModel):
-    pub = models.ForeignKey(Pubs, on_delete=models.CASCADE, related_name='pizza')
+class Bundle(CustomModel):
+    pub = models.ForeignKey(Pubs, on_delete=models.CASCADE, related_name='bundle')
     name = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='pizza')
+    image = models.ImageField(upload_to='bundle')
     price = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
-    ingredients = models.ManyToManyField(PubsIngredients, through='PizzaIngredients', related_name='pizza')
+    products = models.ManyToManyField(PubsProducts, through='BundleProducts', related_name='bundle')
 
 
-class PizzaIngredients(CustomModel):
-    pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
-    pub_ingredient = models.ForeignKey(PubsIngredients, on_delete=models.CASCADE)
+class BundleProducts(CustomModel):
+    bundle = models.ForeignKey(Bundle, on_delete=models.CASCADE)
+    pub_product = models.ForeignKey(PubsProducts, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, default=1)
 
 

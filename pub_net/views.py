@@ -10,7 +10,7 @@ def homepage_view(request):
     return render(request, 'homepage.html', {
         'brand': 'Ye Olde New Pub',
         'motto': 'Probably the best Ye Olde New Pub in the area!',
-        'pizza_list': [{
+        'bundle_list': [{
             'name': 'Margherita',
             'price': 12
         }, {

@@ -7,8 +7,10 @@
 {% endblock %}
 
 {% block content %}
+    {% include 'pubs/bundle/filters.html' %}
+    {% include 'pagination.html' %}
     <ul class="bundle-list">
-        {% for bundle in bundle_list %}
+        {% for bundle in page_obj %}
             <li>
                 <img src="{{ bundle.image.url }}" height="180" width="100%" />
                 <div class="name-and-price">
@@ -19,25 +21,14 @@
                     Sold by
                     <a href="/pubs/{{ bundle.pub.id }}">{{ bundle.pub.name }}</a>
                 </div>
-                <form method="post" action="{% url 'pubs:bundle:add_to_cart' bundle.id %}?next={% url 'pubs:cart:view' %}">
+                <form class="add-to-cart" method="post" action="{% url 'pubs:bundle:add_to_cart' bundle.id %}">
                     {% csrf_token %}
                     <input name="quantity" type="number" min="0" value="{{ request.session | bundle_value:bundle.id }}" />
                     <input type="submit" value="Add to cart" />
                     <input type="hidden" name="page" value="{{ page_obj.number }}" />
                 </form>
             </li>
-        {% empty %}
-            <p>
-                You have no bundle added to the cart. Go to <a href="{% url 'pubs:bundle:list' %}">bundle list</a>.
-            </p>
         {% endfor %}
     </ul>
-    {% with bundle_list_length=bundle_list|length %}
-        {% if bundle_list_length %}
-            <form>
-                {% csrf_token %}
-                <input type="submit" value="Order" />
-            </form>
-        {% endif %}
-    {% endwith %}
+    {% include 'pagination.html' %}
 {% endblock %}

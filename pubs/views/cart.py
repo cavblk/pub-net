@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from pubs.models import Pizza
+from pubs.models import Bundle
 
 
 def view(request):
     cart = request.session.get('cart', {})
-    pizza_list = Pizza.objects.filter(id__in=cart.keys())
+    bundle_list = Bundle.objects.filter(id__in=cart.keys())
 
     return render(request, 'pubs/cart/view.html', {
-        'pizza_list': pizza_list
+        'bundle_list': bundle_list
     })

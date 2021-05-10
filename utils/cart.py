@@ -8,14 +8,14 @@ class Cart:
         self._session = session
         self._data = session.get('cart', {})
 
-    def update(self, pizza_id, quantity):
-        pizza_id_key = str(pizza_id)
+    def update(self, bundle_id, quantity):
+        bundle_id_key = str(bundle_id)
 
         if quantity == 0:
-            if pizza_id_key in self._data:
-                del self._data[pizza_id_key]
+            if bundle_id_key in self._data:
+                del self._data[bundle_id_key]
         else:
-            self._data[pizza_id_key] = quantity
+            self._data[bundle_id_key] = quantity
 
         self._save()
 
